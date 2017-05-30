@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Alien } from '../../models/alien';
+import { RegisterService } from '../../services/register.service';
 //Report an Encounter
 
 @Component({
