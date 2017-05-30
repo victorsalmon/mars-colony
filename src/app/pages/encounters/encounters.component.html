@@ -2,7 +2,9 @@
   <!--List of Encounters-->
   <div class="warning">
     <h1> Recent Encounters </h1>
-    <h2> See an Alien? Report it! </h2>
+    <a routerLink="/report">
+      <h2> See an Alien? Report it! </h2>
+    </a>
     <button (click)="sortList($event)" class="sort-list"></button>
   </div>
   <div class="list">

@@ -1,3 +1,4 @@
+// Background
 $color-mars: #ed4343;
 
 .wrapper {
@@ -5,18 +6,54 @@ $color-mars: #ed4343;
   height: 100%;
   width: 100%;
 }
-h1{
+
+// DRY-Grouped Styles
+h1, a{
   color: white;
+  font-family: Roboto;
+  font-size: 2rem;
+  font-weight: 100;
+  text-align: center;
+  text-decoration: none;
 }
+select option, input, select, input::placeholder{
+  background: black;
+  border: none;
+  color: $color-mars;
+}
+
+// Heading Styles
+h1 {
+  padding-top: 2.5rem;
+}
+h2{
+  padding-top: 20rem;
+}
+// Remove Arrow
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+select::-ms-expand {
+    display: none;
+}
+
+
+// Flex and Field Styles
 fieldset{
   color: $color-mars;
   display: flex;
-  flex-direction: column;
+  margin-top: 1.5rem;
+  input, select {
+    border-bottom: 1px solid white;
+    display: block;
+    font-size: 1.2rem;
+    height: 2rem;
+    margin: 0.9rem 5%;
+    padding-left: 0.5rem;
+    margin-bottom: 1.7rem;
+    width: 90%;
+  }
 }
-select option{
-  // animation multiple box shadows
-  color: $color-mars;
-}
-input.check-in{
-  color: white;
-}
+
+// animation multiple box shadows
