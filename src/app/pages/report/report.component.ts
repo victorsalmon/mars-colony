@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+//Report an Encounter
 
 @Component({
   selector: 'app-report',

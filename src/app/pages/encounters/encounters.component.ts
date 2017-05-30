@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+// List of Encounters
 
 @Component({
   selector: 'app-encounters',
@@ -6,10 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./encounters.component.scss']
 })
 export class EncountersComponent implements OnInit {
+  listEncounters = [];
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit() { // Document.ready equivalent
+
+  // this.listEncounters.push(Encounter);
+
   }
 
+  sortList (e) {
+    e.preventDefault();
+    return ;
+  }
 }

@@ -1,11 +1,19 @@
-<div class="page">
-  <div class="encounters-list">
+<div class="encounters-page">
+  <!--List of Encounters-->
+  <div class="warning">
+    <p *ngIf="listEncounters.length > 10">There are too many encounters to display nicely.</p>
+    <button (click)="sortList($event)" class="sort-list"></button>
+  </div>
+
+  <div class="list">
     <ul>
-      <li>Encounter</li>
-      <li>Encounter</li>
-      <li>Encounter</li>
-      <li>Encounter</li>
-      <li>Encounter</li>
+      <li *ngFor="let item of listEncounters">{{ item }}</li>
     </ul>
+
+    <div>
+      <a routerLink="/report" class="">Report an Encounter!</a>  
+    </div>
+  
+  
   </div>
 </div>
