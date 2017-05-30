@@ -1,0 +1,21 @@
+$color-mars: #ed4343;
+
+.wrapper {
+  background: black;
+  height: 100%;
+  width: 100%;
+}
+h1{
+  color: white;
+}
+fieldset{
+  color: $color-mars;
+  display: flex;
+  flex-direction: column;
+}
+select option{
+  color: $color-mars;
+}
+input.check-in{
+  color: white;
+}
