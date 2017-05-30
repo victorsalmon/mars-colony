@@ -6,8 +6,10 @@ import { EncountersService } from '../../services/encounters.service';
 @Component({
   selector: 'app-encounters',
   templateUrl: './encounters.component.html',
-  styleUrls: ['./encounters.component.scss']
+  styleUrls: ['./encounters.component.scss'],
+  providers: [EncountersService]
 })
+
 export class EncountersComponent implements OnInit {
   public listEncounters: Encounter [] = [];
 
@@ -18,7 +20,10 @@ export class EncountersComponent implements OnInit {
   ngOnInit() { // Document.ready equivalent
   // this.listEncounters.push(Encounter);
 
-  this.encountersService.getData();
+  this.encountersService.getData()
+      .subscribe((encounters) => {
+        this.listEncounters = encounters.encounters;
+      });
 
   }
 

@@ -1,13 +1,16 @@
 <div class="encounters-page">
   <!--List of Encounters-->
   <div class="warning">
-    <p *ngIf="listEncounters.length > 10">There are too many encounters to display nicely.</p>
+    <h1> Recent Encounters </h1>
+    <h2> See an Alien? Report it! </h2>
     <button (click)="sortList($event)" class="sort-list"></button>
   </div>
-
   <div class="list">
     <ul>
-      <li *ngFor="let item of listEncounters">{{ item }}</li>
+      <li *ngFor="let encounter of listEncounters">
+        <p><span>{{ encounter.date }} - {{ encounter.atype }}</span>
+        {{ encounter.action }}</p>
+      </li>
     </ul>
 
     <div>
