@@ -7,14 +7,14 @@ import { Report } from '../models/report';
 @Injectable()
 export class ReportService {
 
-  private URL_REPORT = 'https://red-wdp-api.herokuapp.com/api/mars/report';
+  private URL_REPORT = 'https://red-wdp-api.herokuapp.com/api/mars/encounters';
 
   constructor(private http: Http) { }
 
-  postData(report: Report) {
+  postData(encounter: Report) {
     const headers = new Headers({ 'Content-Type' : 'application/json'})
     const options = new RequestOptions ({ headers });
-    return this.http.post(this.URL_REPORT, report, options)
+    return this.http.post(this.URL_REPORT, {encounter} , options)
         .map(this.extractData);
   }
 
