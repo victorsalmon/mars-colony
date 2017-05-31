@@ -31,8 +31,9 @@ export class RegisterComponent implements OnInit {
     this.colonistService
         .postData(colonist)
         .subscribe((newColonist) => {
-            console.log(newColonist);
+            localStorage.setItem('colonistIdNum', (newColonist.colonist.id).toString());
+            console.log(localStorage.getItem('colonistIdNum'));
         });
   }
-
+  
 }

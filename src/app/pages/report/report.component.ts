@@ -15,6 +15,10 @@ import { ReportService } from '../../services/report.service';
 export class ReportComponent implements OnInit {
   public listAliens: Alien [] = [];
   public report: Report;
+
+  public inAtype: string;
+  public inAction: string;
+
   constructor(private alienService: AlienService,
               private reportService: ReportService) { }
 
@@ -25,8 +29,14 @@ export class ReportComponent implements OnInit {
         });
   }
 
-  postReport (atype, date, action, colonist_id) {
-    const report  = new Report(atype, date, action, colonist_id);
+  postReport (inAtype, inAction) {
+    const day = new Date;
+    const dateString = `${day.getFullYear()}-${day.getMonth()}-${day.getDate()}`;
+
+    const colonist_id = localStorage.getItem('colonistIdNum');
+
+    const report  = new Report(inAtype, dateString, inAction, colonist_id);
+
     this.reportService
         .postData(report)
         .subscribe((newReport) => {
