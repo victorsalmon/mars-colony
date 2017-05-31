@@ -6,7 +6,46 @@ li{
     display:block;
   }
 }
-
-h1, h2{
+a{
+  text-decoration: none;
+}
+h1, h2, .report{
   text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+  text-align: center;
+}
+h1{
+  font-size: 2rem;
+  padding-top: 2.5rem;
+}
+h2{
+  padding-bottom: 1.5rem;
+}
+
+li {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+  p{
+    font-size: 1.2rem;
+  }
+}
+
+.encounters-page {
+  background: white;
+}
+
+.report {
+  background: black;
+  bottom: 0;
+  display: flex;
+  height: 25vh;
+  justify-content: center;
+  position: fixed;
+  width: 100%;
+  a {
+    align-self: center;
+    color: white;
+    font-size: 2rem;
+  }
 }
