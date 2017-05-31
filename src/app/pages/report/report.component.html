@@ -1,14 +1,15 @@
-<div>
-  <!--Report an Encounter-->
+<div class="report-wrap">
+  <h1>Report an Encounter</h1>
+  <h2>Safety on Mars is your repsonsibility</h2>
   <form action="">
     <fieldset>
-      <input type="text" placeholder="Enter your name" />
       <select>
         <option value="" selected>Select an alien type</option>
         <option *ngFor="let alien of listAliens">
           {{alien.type}}
         </option>
       </select>
+      <input type="text" class="action-taken" placeholder="Action taken" />
     </fieldset>
   </form>
 </div>
