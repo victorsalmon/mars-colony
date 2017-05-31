@@ -9,7 +9,10 @@
           {{alien.type}}
         </option>
       </select>
-      <input type="text" class="action-taken" placeholder="Action taken" />
+      <textarea class="action-taken" placeholder="Action taken" rows="10"></textarea>
     </fieldset>
+    <div class="btn-wrap">
+      <a (click)="postColonist()" routerLink="/encounters" class="submit-report">Submit Report</a>
+    </div>
   </form>
 </div>
