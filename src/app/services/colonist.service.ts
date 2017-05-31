@@ -9,7 +9,7 @@ export class ColonistService {
 
   private URL_COLONIST = 'https://red-wdp-api.herokuapp.com/api/mars/colonist';
 
-  constructor(private http: Http) {  }
+  constructor(private http: Http) { }
 
   postData(colonist: Colonist) {
     const headers = new Headers({ 'Content-Type' : 'application/json'})
@@ -18,9 +18,8 @@ export class ColonistService {
         .map(this.extractData);
   }
 
-  extractData(res: Response){
+  extractData(res: Response) {
     const colonist = res.json();
     return colonist;
   }
-
 }
