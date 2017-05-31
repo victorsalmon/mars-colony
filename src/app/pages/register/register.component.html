@@ -3,14 +3,16 @@
   <form action="">
     <fieldset>
       <input type="text" placeholder="Name" />
-      <input type="text" placeholder="Age" />
+      <input type="number" placeholder="Age" />
       <select>
         <option value="" selected>Select occupation</option>
         <option *ngFor="let job of listJobs">
           {{job.name}}
         </option>
       </select>
-      <a routerLink="/encounters" class="check-in">Check in</a>  
     </fieldset>
+    <div class="flex-wrap">
+      <a routerLink="/encounters" class="check-in">Check in</a>  
+    </div>
   </form>
 </div>

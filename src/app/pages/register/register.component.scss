@@ -3,18 +3,22 @@ $color-mars: #ed4343;
 
 .wrapper {
   background: black;
-  height: 100%;
+  height: 100vh;
   width: 100%;
 }
 
 // DRY-Grouped Styles
-h1, a{
+h1, .check-in{
   color: white;
-  font-family: Roboto;
+  font-family: 'Roboto', sans-serif;
   font-size: 2rem;
   font-weight: 100;
   text-align: center;
   text-decoration: none;
+}
+.flex-wrap {
+  display: flex;
+  justify-content: center;
 }
 select option, input, select, input::placeholder{
   background: black;
@@ -24,10 +28,10 @@ select option, input, select, input::placeholder{
 
 // Heading Styles
 h1 {
-  padding-top: 2.5rem;
+  padding-top: 3vh;
 }
-h2{
-  padding-top: 20rem;
+a.check-in{
+  margin-top: 30vh;
 }
 // Remove Arrow
 select {
@@ -39,10 +43,9 @@ select::-ms-expand {
 }
 
 
-// Flex and Field Styles
+// Field Styles
 fieldset{
   color: $color-mars;
-  display: flex;
   margin-top: 1.5rem;
   input, select {
     border-bottom: 1px solid white;
@@ -53,6 +56,9 @@ fieldset{
     padding-left: 0.5rem;
     margin-bottom: 1.7rem;
     width: 90%;
+    &:focus{
+      outline: none;
+    }
   }
 }
 
