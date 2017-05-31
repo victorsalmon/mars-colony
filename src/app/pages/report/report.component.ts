@@ -1,20 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { Alien } from '../../models/alien';
-import { ReportService } from '../../services/report.service';
+import { AlienService } from '../../services/alien.service';
 // Report an Encounter
 
 @Component({
   selector: 'app-report',
   templateUrl: './report.component.html',
   styleUrls: ['./report.component.scss'],
-  providers: [ReportService]
+  providers: [AlienService]
 })
 export class ReportComponent implements OnInit {
   public listAliens: Alien [] = [];
-  constructor(private reportService: ReportService) { }
+  constructor(private alienService: AlienService) { }
 
   ngOnInit() {
-    this.reportService.getData()
+    this.alienService.getData()
         .subscribe((aliens) => {
           this.listAliens = aliens;
         });
