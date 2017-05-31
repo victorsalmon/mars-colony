@@ -7,14 +7,14 @@ import { Colonist } from '../models/colonist';
 @Injectable()
 export class ColonistService {
 
-  private URL_COLONIST = 'https://red-wdp-api.herokuapp.com/api/mars/colonist';
+  private URL_COLONISTS = 'https://red-wdp-api.herokuapp.com/api/mars/colonists';
 
   constructor(private http: Http) { }
 
   postData(colonist: Colonist) {
     const headers = new Headers({ 'Content-Type' : 'application/json'})
     const options = new RequestOptions ({ headers });
-    return this.http.post(this.URL_COLONIST, colonist, options)
+    return this.http.post(this.URL_COLONISTS, {colonist}, options)
         .map(this.extractData);
   }
 
