@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Job } from '../../models/job'; // GET
-import { RegisterService } from '../../services/register.service'; 
+import { RegisterService } from '../../services/register.service';
 
 import { Colonist } from '../../models/colonist'; // POST
 import { ColonistService } from '../../services/colonist.service';
-
+import { FormGroup, FormControl, FormBuilder, Validators, ValidatorFn, AbstractControl } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
