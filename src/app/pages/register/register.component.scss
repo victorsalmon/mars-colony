@@ -30,8 +30,13 @@ select option, input, select, input::placeholder{
 h1 {
   padding-top: 3vh;
 }
-a.check-in{
+.check-in{
+  background: black;
+  border: none;
   margin-top: 30vh;
+  &:focus {
+    border: none;
+  }
 }
 // Remove Arrow
 select {

@@ -1,6 +1,6 @@
 <div class="wrapper">
   <h1>Register</h1>
-  <form [formGroup]="registerForm">
+  <form [formGroup]="registerForm" (ngSubmit)="postColonist($event)">
     <fieldset>
       <input type="text" placeholder="Name" formControlName="colName" required/>
       <input type="number" placeholder="Age" formControlName="colAge" required/>
@@ -12,7 +12,7 @@
       </select>
     </fieldset>
     <div class="flex-wrap">
-      <a (click)="postColonist()" routerLink="/encounters" class="check-in">Check in</a>
+      <button (click)="postColonist()" [disabled]="registerForm.invalid" routerLink="/encounters" class="check-in" type="submit">Check in</button>
     </div>
   </form>
 </div>

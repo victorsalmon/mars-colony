@@ -13,6 +13,12 @@ import {
   AbstractControl
 } from '@angular/forms';
 
+const cantBe = (value: string): ValidatorFn => {
+    return (control: AbstractControl) => {
+      return control.value === value ? { 'Can\'t be this value': value} : null;
+    };
+};
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -39,7 +45,7 @@ export class RegisterComponent implements OnInit {
       colAge: new FormControl('', [
           Validators.required,
           Validators.maxLength(2)]),
-      colJob: new FormControl(this.NO_JOB_SELECTED, [])
+      colJob: new FormControl(this.NO_JOB_SELECTED, [cantBe(this.NO_JOB_SELECTED)]);
     });
 
     this.registerService.getData()
@@ -48,8 +54,12 @@ export class RegisterComponent implements OnInit {
     });
   }
 
-  postColonist () {
-    const colonist = new Colonist(this.registerForm, '35', '4');
+  postColonist (e) {
+    e.preventDefault();
+    const name = this.registerForm.get('colName').value;
+    const age = this.registerForm.get('colAge').value;
+    const job_id = this.registerForm.get('colJob').value;
+    const colonist = new Colonist(name, age, job_id);
     this.colonistService
         .postData(colonist)
         .subscribe((newColonist) => {
@@ -57,5 +67,4 @@ export class RegisterComponent implements OnInit {
             console.log(localStorage.getItem('colonistIdNum'));
         });
   }
-  
 }
