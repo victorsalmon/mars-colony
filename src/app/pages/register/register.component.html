@@ -1,12 +1,12 @@
 <div class="wrapper">
   <h1>Register</h1>
-  <form class="register-form">
+  <form class="register-form" [formGroup]="registerForm">
     <fieldset>
-      <input type="text" placeholder="Name" name="colName" required/>
-      <input type="number" placeholder="Age" name="colAge" required/>
-      <select name="colJob" required>
+      <input type="text" placeholder="Name" formControlName="colName" required/>
+      <input type="number" placeholder="Age" formControlName="colAge" required/>
+      <select formControlName="colJob" required>
         <option value="" selected>Select occupation</option>
-        <option *ngFor="let job of listJobs">
+        <option *ngFor="let job of listJobs" value="job.id">
           {{job.name}}
         </option>
       </select>
