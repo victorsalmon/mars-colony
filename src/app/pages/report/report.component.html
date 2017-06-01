@@ -3,13 +3,13 @@
   <h2>Safety on Mars is your repsonsibility</h2>
   <form action="">
     <fieldset>
-      <select [(ngModel)]="inAtype">
-        <option value="" selected>Select an alien type</option>
+      <select [(ngModel)]="enAtype">
+        <option value="" selected name="enAtype">Select an alien type</option>
         <option *ngFor="let alien of listAliens">
           {{alien.type}}
         </option>
       </select>
-      <textarea [(ngModel)]="inAction" class="action-taken" placeholder="Action taken" rows="10"></textarea>
+      <textarea class="action-taken" placeholder="Action taken" name="enAct"></textarea>
     </fieldset>
     <div class="btn-wrap">
       <a (click)="postReport()" routerLink="/encounters" class="submit-report">Submit Report</a>
