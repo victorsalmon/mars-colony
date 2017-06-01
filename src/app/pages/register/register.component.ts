@@ -23,20 +23,23 @@ export class RegisterComponent implements OnInit {
   public listJobs: Job [] = [];
   public colonist: Colonist;
   public registerForm: FormGroup;
+  private NO_JOB_SELECTED = false;
 
-  constructor(private registerService: RegisterService,
-              private colonistService: ColonistService) { }
+  constructor(
+      private registerService: RegisterService,
+      private colonistService: ColonistService,
+      private formBuilder: FormBuilder) { }
 
   ngOnInit() {
     this.registerForm = new FormGroup({
-      name: new FormControl('', [
+      colName: new FormControl('', [
           Validators.required,
-          Validators.maxLength(35), 
+          Validators.maxLength(35),
           Validators.minLength(2)]),
-      age: new FormControl('', [
+      colAge: new FormControl('', [
           Validators.required,
           Validators.maxLength(2)]),
-      job_id: new FormControl('', [])
+      colJob: new FormControl(this.NO_JOB_SELECTED, [])
     });
 
     this.registerService.getData()
@@ -46,7 +49,7 @@ export class RegisterComponent implements OnInit {
   }
 
   postColonist () {
-    const colonist = new Colonist('Mack', '35', '4');
+    const colonist = new Colonist(this.registerForm, '35', '4');
     this.colonistService
         .postData(colonist)
         .subscribe((newColonist) => {
