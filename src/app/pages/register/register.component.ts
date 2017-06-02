@@ -29,7 +29,7 @@ export class RegisterComponent implements OnInit {
   public listJobs: Job [] = [];
   public colonist: Colonist;
   public registerForm: FormGroup;
-  private NO_JOB_SELECTED = 'false';
+  private NO_JOB_SELECTED = 'default';
 
   constructor(
       private registerService: RegisterService,

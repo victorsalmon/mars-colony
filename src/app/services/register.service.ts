@@ -19,4 +19,5 @@ export class RegisterService {
     const jobs = res.json();
     return jobs.jobs;
   }
+
 }
