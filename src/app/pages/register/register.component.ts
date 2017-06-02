@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Job } from '../../models/job'; // GET
 import { RegisterService } from '../../services/register.service';
-
+import { RouterModule, Routes, Router } from '@angular/router';
 import { Colonist } from '../../models/colonist'; // POST
 import { ColonistService } from '../../services/colonist.service';
 import {
@@ -29,12 +29,13 @@ export class RegisterComponent implements OnInit {
   public listJobs: Job [] = [];
   public colonist: Colonist;
   public registerForm: FormGroup;
-  private NO_JOB_SELECTED = false;
+  private NO_JOB_SELECTED = 'false';
 
   constructor(
       private registerService: RegisterService,
       private colonistService: ColonistService,
-      private formBuilder: FormBuilder) { }
+      private formBuilder: FormBuilder,
+      private router: Router) { }
 
   ngOnInit() {
     this.registerForm = new FormGroup({
@@ -45,7 +46,7 @@ export class RegisterComponent implements OnInit {
       colAge: new FormControl('', [
           Validators.required,
           Validators.maxLength(2)]),
-      colJob: new FormControl(this.NO_JOB_SELECTED, [cantBe(this.NO_JOB_SELECTED)]);
+      colJob: new FormControl(this.NO_JOB_SELECTED, [cantBe(this.NO_JOB_SELECTED)])
     });
 
     this.registerService.getData()
@@ -65,6 +66,7 @@ export class RegisterComponent implements OnInit {
         .subscribe((newColonist) => {
             localStorage.setItem('colonistIdNum', (newColonist.colonist.id).toString());
             console.log(localStorage.getItem('colonistIdNum'));
+            this.router.navigate (['/encounters']);
         });
   }
 }
