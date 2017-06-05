@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { RouterModule, Routes} from '@angular/router'; // Router
+import { RouterModule, Routes } from '@angular/router'; // Router
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';

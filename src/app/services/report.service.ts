@@ -12,10 +12,10 @@ export class ReportService {
   constructor(private http: Http) { }
 
   postData(encounter: Report) {
-    const headers = new Headers({ 'Content-Type' : 'application/json'})
-    const options = new RequestOptions ({ headers });
-    return this.http.post(this.URL_REPORT, {encounter} , options)
-        .map(this.extractData);
+    const headers = new Headers({ 'Content-Type': 'application/json' })
+    const options = new RequestOptions({ headers });
+    return this.http.post(this.URL_REPORT, { encounter }, options)
+      .map(this.extractData);
   }
 
   extractData(res: Response) {

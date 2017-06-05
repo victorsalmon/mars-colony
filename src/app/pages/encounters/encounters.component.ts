@@ -11,24 +11,24 @@ import { EncountersService } from '../../services/encounters.service';
 })
 
 export class EncountersComponent implements OnInit {
-  public listEncounters: Encounter [] = [];
+  public listEncounters: Encounter[] = [];
 
   constructor(private encountersService: EncountersService) {
 
-   }
+  }
 
   ngOnInit() { // Document.ready equivalent
-  // this.listEncounters.push(Encounter);
+    // this.listEncounters.push(Encounter);
 
-  this.encountersService.getData()
+    this.encountersService.getData()
       .subscribe((encounters) => {
         this.listEncounters = encounters.encounters;
       });
 
   }
 
-  sortList (e) {
+  sortList(e) {
     e.preventDefault();
-    return ;
+    return;
   }
 }

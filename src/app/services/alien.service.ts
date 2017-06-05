@@ -15,7 +15,7 @@ export class AlienService {
       .map(this.extractAliens);
   }
 
-  extractAliens (res: Response) {
+  extractAliens(res: Response) {
     const aliens = res.json();
     return aliens.aliens;
   }

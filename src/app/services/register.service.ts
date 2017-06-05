@@ -15,7 +15,7 @@ export class RegisterService {
       .map(this.extractJobs);
   }
 
-  extractJobs (res: Response) {
+  extractJobs(res: Response) {
     const jobs = res.json();
     return jobs.jobs;
   }

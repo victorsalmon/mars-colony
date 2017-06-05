@@ -14,9 +14,9 @@ import {
 } from '@angular/forms';
 
 const cantBe = (value: string): ValidatorFn => {
-    return (control: AbstractControl) => {
-      return control.value === value ? { 'Can\'t be this value': value} : null;
-    };
+  return (control: AbstractControl) => {
+    return control.value === value ? { 'Can\'t be this value': value } : null;
+  };
 };
 
 @Component({
@@ -26,47 +26,47 @@ const cantBe = (value: string): ValidatorFn => {
   providers: [RegisterService, ColonistService]
 })
 export class RegisterComponent implements OnInit {
-  public listJobs: Job [] = [];
+  public listJobs: Job[] = [];
   public colonist: Colonist;
   public registerForm: FormGroup;
   private NO_JOB_SELECTED = 'default';
 
   constructor(
-      private registerService: RegisterService,
-      private colonistService: ColonistService,
-      private formBuilder: FormBuilder,
-      private router: Router) { }
+    private registerService: RegisterService,
+    private colonistService: ColonistService,
+    private formBuilder: FormBuilder,
+    private router: Router) { }
 
   ngOnInit() {
     this.registerForm = new FormGroup({
       colName: new FormControl('', [
-          Validators.required,
-          Validators.maxLength(35),
-          Validators.minLength(2)]),
+        Validators.required,
+        Validators.maxLength(35),
+        Validators.minLength(2)]),
       colAge: new FormControl('', [
-          Validators.required,
-          Validators.maxLength(2)]),
+        Validators.required,
+        Validators.maxLength(2)]),
       colJob: new FormControl(this.NO_JOB_SELECTED, [cantBe(this.NO_JOB_SELECTED)])
     });
 
     this.registerService.getData()
-        .subscribe((jobs) => {
-          this.listJobs = jobs;
-    });
+      .subscribe((jobs) => {
+        this.listJobs = jobs;
+      });
   }
 
-  postColonist (e) {
+  postColonist(e) {
     e.preventDefault();
     const name = this.registerForm.get('colName').value;
     const age = this.registerForm.get('colAge').value;
     const job_id = this.registerForm.get('colJob').value;
     const colonist = new Colonist(name, age, job_id);
     this.colonistService
-        .postData(colonist)
-        .subscribe((newColonist) => {
-            localStorage.setItem('colonistIdNum', (newColonist.colonist.id).toString());
-            console.log('Successfully posted colonist as colonist number: ', localStorage.getItem('colonistIdNum'));
-            this.router.navigate (['/encounters']);
-        });
+      .postData(colonist)
+      .subscribe((newColonist) => {
+        localStorage.setItem('colonistIdNum', (newColonist.colonist.id).toString());
+        console.log('Successfully posted colonist as colonist number: ', localStorage.getItem('colonistIdNum'));
+        this.router.navigate(['/encounters']);
+      });
   }
 }

@@ -16,7 +16,7 @@ export class EncountersService {
       .map(this.extractEncounters);
   }
 
-  extractEncounters (res: Response) {
+  extractEncounters(res: Response) {
     const encounters = res.json();
     return encounters;
   }
