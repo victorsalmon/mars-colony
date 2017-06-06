@@ -30,7 +30,7 @@ export class ReportComponent implements OnInit {
   public listAliens: Alien [] = [];
   public report: Report;
   public reportForm: FormGroup;
-  private NO_SELECTION = 'default';
+  public NO_SELECTION = 'default';
   private repAtype: string;
   private repAct: string;
 
