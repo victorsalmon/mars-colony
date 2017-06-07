@@ -33,7 +33,6 @@ export class BlogService {
         title: post.title.rendered,
         link: post.link
       };
-      console
       simplePosts.push(simplePost);
     }
 
