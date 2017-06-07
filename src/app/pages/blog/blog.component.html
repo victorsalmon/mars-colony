@@ -1,3 +1,12 @@
-<p>
-  blog works!
-</p>
+<div class="blog-container">
+  <h1>4th Rock from the Sun</h1>
+  <ul>
+    <li *ngFor="let post of listPosts">
+      <a href="{{ post.link }}"><h2>{{ post.title }}</h2></a>
+      <div class="entry-content" [innerHTML]="post.content | keepHtml"> </div>
+    </li>
+  </ul>
+  <footer>
+    Copyright &copy; 2016 <a href="#">Red Mars Colony</a>
+  </footer>
+</div>

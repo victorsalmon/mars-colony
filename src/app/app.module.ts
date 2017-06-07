@@ -10,13 +10,14 @@ import { RegisterComponent } from './pages/register/register.component';
 import { EncountersComponent } from './pages/encounters/encounters.component';
 import { ReportComponent } from './pages/report/report.component';
 import { BlogComponent } from './pages/blog/blog.component';
+import { EscapeHtmlPipe } from './pipes/keep-html.pipe';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'encounters', component: EncountersComponent },
   { path: 'report', component: ReportComponent },
-  { path: 'blog', component: ReportComponent }
+  { path: 'blog', component: BlogComponent }
 ];
 
 @NgModule({
@@ -26,7 +27,8 @@ const appRoutes: Routes = [
     RegisterComponent,
     EncountersComponent,
     ReportComponent,
-    BlogComponent
+    BlogComponent,
+    EscapeHtmlPipe
   ],
   imports: [
     BrowserModule,

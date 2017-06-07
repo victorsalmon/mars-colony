@@ -17,8 +17,7 @@ export class EncountersComponent implements OnInit {
 
   }
 
-  ngOnInit() { // Document.ready equivalent
-    // this.listEncounters.push(Encounter);
+  ngOnInit() {
 
     this.encountersService.getData()
       .subscribe((encounters) => {
