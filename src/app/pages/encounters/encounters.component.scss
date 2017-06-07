@@ -49,3 +49,22 @@ li {
     font-size: 2rem;
   }
 }
+
+.blog-icon{
+  background-image:url('../../../assets/mars-icon.png');
+  background-size: cover;
+  top: 0;
+  padding: 3rem 0.5rem;
+  position: absolute;
+  right: 1.5rem;
+  width: 4.5rem;
+  a{
+    color: orange;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-decoration: none;
+    position: absolute;
+    right: 1.3rem;
+    top: 2.8rem;
+  }
+}
